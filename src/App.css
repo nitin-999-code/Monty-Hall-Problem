@@ -1,0 +1,347 @@
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 1;
+  padding-left: 500px;
+  background-color: #1b1d1e;
+  color: #333;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.nav-menu button {
+  background: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-menu button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+
+.game-screen {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.game-title {
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.door-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.door {
+  width: 150px;
+  height: 200px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.door:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.door::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.door-number {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+
+.decision-phase {
+  text-align: center;
+}
+
+.reveal-message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+}
+
+.decision-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.decision-button {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.stay-button {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.switch-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.decision-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+
+.result-phase {
+  text-align: center;
+}
+
+.result-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-title.win {
+  color: var(--secondary-color);
+}
+
+.result-title.lose {
+  color: var(--danger-color);
+}
+
+.prize-reveal {
+  margin: 2rem 0;
+}
+
+.prize-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.car-location, .strategy-used {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: var(--dark-color);
+}
+
+.play-again-button {
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.play-again-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.stat-item h3 {
+  margin-top: 0;
+  color: var(--dark-color);
+  font-size: 1rem;
+}
+
+.stat-item p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: var(--primary-color);
+}
+
+
+@media (max-width: 768px) {
+  .door {
+    width: 120px;
+    height: 160px;
+  }
+  
+  .game-title {
+    font-size: 1.5rem;
+  }
+  
+  .result-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .door-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .door {
+    width: 100%;
+    max-width: 150px;
+  }
+  
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.App {
+  width: 100%;
+  max-width: 800px;
+}
+
+.game-screen {
+  margin: 0 auto;
+}
+
+.doors {
+  justify-content: center !important;
+}
